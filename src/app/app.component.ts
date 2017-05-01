@@ -16,16 +16,22 @@ export class AppComponent {
 
   }
 
-  addTodo(){
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
-  }
+  // addTodo(){
+  //   this.todoDataService.addTodo(this.newTodo);
+  //   this.newTodo = new Todo();
+  // }
 
-  toggleTodoComplete(todo){
+  // Add new method to handle event emitted by TodoListHeaderComponent
+  onAddTodo(todo: Todo) {
+    this.todoDataService.addTodo(todo);
+  }
+  // rename from toggleTodoComplete
+  onToggleTodoComplete(todo: Todo) {
     this.todoDataService.toggleTodoComplete(todo);
   }
 
-  removeTodo(todo) {
+  // rename from removeTodo
+  onRemoveTodo(todo: Todo) {
     this.todoDataService.deleteTodoById(todo.id);
   }
 
